@@ -5,6 +5,11 @@ require("dotenv").config();
 module.exports = {
   solidity: "0.8.10",
   networks: {
+    hardhat: {
+      forking: {
+        url: process.env.ALCHEMY_POLYGON_ENDPOINT,
+      }
+    },
     sepolia: {
       url: process.env.ALCHEMY_SEPOLIA_ENDPOINT,
       accounts: [process.env.WALLET_PRIVATE_KEY]
@@ -12,6 +17,10 @@ module.exports = {
     mumbai: {
       url: process.env.ALCHEMY_POLYGON_TESTNET_ENDPOINT,
       accounts: [process.env.WALLET_PRIVATE_KEY]
+    },
+    polygon: {
+      url: process.env.ALCHEMY_POLYGON_ENDPOINT,
+      accounts: [process.env.HARDHAT_PRIVATE_KEY]
     }
   }
 };

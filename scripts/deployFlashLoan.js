@@ -4,7 +4,7 @@ async function main() {
   const FlashLoan = await hre.ethers.getContractFactory("FlashLoan");
   // const PoolAddressesProvider-Polygon Mumbai= "0x4CeDCB57Af02293231BAA9D39354D6BFDFD251e0";
   // const PoolAddressesProvider-Polygon Mainnet = "0xa97684ead0e402dC232d5A977953DF7ECBaB3CDb";
-  const flashLoan = await hre.ethers.deployContract("FlashLoan", ["0x4CeDCB57Af02293231BAA9D39354D6BFDFD251e0"]);
+  const flashLoan = await hre.ethers.deployContract("FlashLoan", ["0xa97684ead0e402dC232d5A977953DF7ECBaB3CDb"]);
 
   await flashLoan.waitForDeployment();
   console.log("FlashLoan contract deployed: ", flashLoan.target);

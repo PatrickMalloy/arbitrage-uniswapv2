@@ -29,10 +29,13 @@ contract FlashLoan is FlashLoanSimpleReceiverBase {
     path[0]=borrowToken;
     path[1]=sellToken;
 
+    // Approve Router to pull token
+    IERC20(borrowToken).approve(address(buyDexRouter), amount);
     // buyDexRouter.swapExactTokensForTokens(amount, 0, path, address(this), block.timestamp);
     buyDexRouter.swapExactTokensForTokens(IERC20(borrowToken).balanceOf(address(this)), 0, path, address(this), block.timestamp);
     path[0]=sellToken;
     path[1]=borrowToken;
+    IERC20(sellToken).approve(address(sellDexRouter), IERC20(sellToken).balanceOf(address(this)));
     sellDexRouter.swapExactTokensForTokens(IERC20(sellToken).balanceOf(address(this)), 0, path, address(this), block.timestamp);
 
     // Return funds + premium to Aave
