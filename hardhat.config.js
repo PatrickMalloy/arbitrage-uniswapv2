@@ -7,7 +7,7 @@ module.exports = {
   networks: {
     hardhat: {
       forking: {
-        url: process.env.ALCHEMY_POLYGON_ENDPOINT,
+        url: process.env.ALCHEMY_ETHEREUM_ENDPOINT,
       }
     },
     sepolia: {
